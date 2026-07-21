@@ -1,0 +1,101 @@
+.post-insight-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 999;
+  background: rgba(0, 0, 0, 0.56);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+}
+
+.post-insight-modal__panel {
+  width: min(520px, 100%);
+  max-height: calc(100vh - 48px);
+  overflow-y: auto;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  background: #141414;
+  box-shadow:
+    0 54px 22px rgba(0, 0, 0, 0.02),
+    0 30px 18px rgba(0, 0, 0, 0.08),
+    0 14px 14px rgba(0, 0, 0, 0.13),
+    0 3px 7px rgba(0, 0, 0, 0.15);
+  color: #ffffff;
+  padding: 22px;
+  box-sizing: border-box;
+}
+
+.post-insight-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.post-insight-modal__header h2 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1.2;
+  font-weight: 500;
+}
+
+.post-insight-modal__header button {
+  width: 34px;
+  height: 34px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 50%;
+  background: #0b0b0b;
+  color: #ffffff;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  cursor: pointer;
+}
+
+.post-insight-modal__header button:hover,
+.post-insight-modal__header button:focus-visible {
+  border-color: rgba(242, 7, 18, 0.72);
+  background: rgba(242, 7, 18, 0.16);
+}
+
+.post-insight-modal__grid {
+  display: grid;
+  gap: 10px;
+}
+
+.post-insight-modal__grid > div,
+.post-insight-modal__poll > div,
+.post-insight-modal__poll-options > div {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  background: #0b0b0b;
+  color: #d2d2d2;
+  padding: 10px 12px;
+}
+
+.post-insight-modal strong {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.post-insight-modal__poll {
+  margin-top: 18px;
+}
+
+.post-insight-modal__poll h3 {
+  margin: 0 0 10px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.post-insight-modal__poll-options {
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+}

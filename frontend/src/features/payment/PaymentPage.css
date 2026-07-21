@@ -1,0 +1,947 @@
+.payment-page {
+  background-color: #232323;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 30px 40px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+.payment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.payment-header__logo {
+  height: 28px;
+  cursor: pointer;
+}
+
+.payment-header__close {
+  background: none;
+  border: none;
+  color: #888888;
+  font-size: 24px;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.payment-header__close:hover {
+  color: #ffffff;
+}
+
+.payment-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 30px;
+}
+
+.payment-pending-container {
+  min-height: calc(100vh - 120px);
+  display: grid;
+  place-items: center;
+  padding: 20px 0 60px;
+}
+
+/* CARDS DAN LAYOUT */
+.payment-main-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.payment-section-card {
+  background-color: #17171c;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section-title-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.section-badge {
+  background-color: #e50914;
+  color: #ffffff;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.section-title-wrapper h2 {
+  font-size: 18px;
+  margin: 0;
+  font-weight: 600;
+}
+
+/* DATA DIRI FORM */
+.form-group-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.form-input-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-input-box label {
+  font-size: 13px;
+  color: #8e8e93;
+}
+
+.form-input-box input,
+.form-input-box select {
+  background-color: #23232a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px 16px;
+  color: #ffffff;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.form-input-box input:focus,
+.form-input-box select:focus {
+  border-color: #e50914;
+}
+
+/* PILIH METODE PEMBAYARAN */
+.payment-method-selector-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.payment-method-row {
+  background-color: #23232a;
+  border-radius: 12px;
+  padding: 16px 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  border: 1.5px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.payment-method-row input[type="radio"] {
+  accent-color: #e50914;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.payment-method-row.is-active {
+  border-color: #e50914;
+  background-color: rgba(229, 9, 20, 0.04);
+}
+
+.method-row-content {
+  width: 100%;
+}
+
+.method-icon-text {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.icon-method-emoji {
+  font-size: 24px;
+}
+
+.icon-method-logo {
+  width: 42px;
+  height: 42px;
+  flex: 0 0 auto;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.icon-method-logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.method-icon-text strong {
+  display: block;
+  font-size: 15px;
+}
+
+.method-icon-text p {
+  margin: 2px 0 0 0;
+  font-size: 12px;
+  color: #8e8e93;
+}
+
+/* PILIH CHANNEL PEMBAYARAN */
+.payment-channel-selector {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.payment-channel-btn {
+  min-height: 46px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #17171c;
+  color: #d8d8dc;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+}
+
+.payment-channel-btn:hover,
+.payment-channel-btn.is-selected {
+  border-color: #e50914;
+  background: rgba(229, 9, 20, 0.08);
+  color: #ffffff;
+}
+
+.payment-channel-icon {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+}
+
+.payment-channel-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* DETAIL METODE DINAMIS */
+.payment-detail-box {
+  background-color: #23232a;
+  border-radius: 12px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.payment-detail-box h4 {
+  margin: 0 0 4px 0;
+  font-size: 16px;
+}
+
+.detail-subtext {
+  font-size: 12px;
+  color: #8e8e93;
+  margin: 0 0 20px 0;
+}
+
+/* QRIS CODE CSS */
+.qris-qr-container {
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 12px;
+  width: fit-content;
+  margin: 0 auto 20px auto;
+}
+
+.qris-svg-code {
+  display: block;
+}
+
+.qris-image-code {
+  width: 180px;
+  height: 180px;
+  display: block;
+  object-fit: contain;
+}
+
+.divider-or {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #55555d;
+  margin: 20px 0;
+  font-size: 12px;
+}
+
+.divider-or::before,
+.divider-or::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.divider-or::before {
+  margin-right: .5em;
+}
+
+.divider-or::after {
+  margin-left: .5em;
+}
+
+.copy-code-group label {
+  display: block;
+  font-size: 12px;
+  color: #8e8e93;
+  margin-bottom: 8px;
+}
+
+.copy-input-row {
+  display: flex;
+  background-color: #17171c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.copy-input-row input {
+  background: none;
+  border: none;
+  flex: 1;
+  padding: 12px;
+  color: #ffffff;
+  font-size: 13px;
+  outline: none;
+}
+
+.copy-input-row button {
+  background-color: #31313a;
+  border: none;
+  color: #ffffff;
+  padding: 0 16px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+/* BANK TRANSFER CSS */
+.bank-tab-selector {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.bank-tab-btn {
+  flex: 1;
+  background-color: #17171c;
+  color: #8e8e93;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bank-tab-btn.is-selected {
+  background-color: #e50914;
+  color: #ffffff;
+  border-color: #e50914;
+}
+
+.bank-info-card {
+  background-color: #17171c;
+  border-radius: 8px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.bank-logo-row {
+  font-weight: bold;
+  font-size: 18px;
+  letter-spacing: 1px;
+  color: #00e082;
+  margin-bottom: 12px;
+}
+
+.payment-method-logo-row {
+  min-height: 42px;
+  display: flex;
+  align-items: center;
+}
+
+.payment-method-logo-row img {
+  max-width: 126px;
+  max-height: 42px;
+  object-fit: contain;
+}
+
+.bank-num-label {
+  font-size: 11px;
+  color: #8e8e93;
+}
+
+.bank-num-value-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 4px 0 12px 0;
+}
+
+.bank-num-value-row strong {
+  font-size: 20px;
+  letter-spacing: 0.5px;
+}
+
+.bank-num-value-row button {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.bank-num-value-row button:disabled,
+.copy-input-row button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.bank-holder-label {
+  font-size: 12px;
+  color: #8e8e93;
+}
+
+/* EWALLET CSS */
+.ewallet-selector-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.ewallet-logo-btn {
+  background-color: #17171c;
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.ewallet-logo-btn.is-selected {
+  border-color: #e50914;
+  background-color: rgba(229, 9, 20, 0.05);
+}
+
+.ewallet-phone-group label {
+  display: block;
+  font-size: 12px;
+  color: #8e8e93;
+  margin-bottom: 8px;
+}
+
+.phone-prefix-input {
+  display: flex;
+  background-color: #17171c;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.phone-prefix-input .prefix {
+  background-color: #31313a;
+  padding: 12px 16px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.phone-prefix-input input {
+  background: none;
+  border: none;
+  color: #ffffff;
+  padding: 12px;
+  font-size: 14px;
+  outline: none;
+  flex: 1;
+}
+
+/* BUTTON BAYAR */
+.btn-pay-now-large {
+  background-color: #e50914;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 18px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  width: 100%;
+}
+
+.btn-pay-now-large:hover {
+  background-color: #c40811;
+}
+
+/* RINGKASAN PESANAN KANAN */
+.payment-summary {
+  background-color: #17171c;
+  border-radius: 16px;
+  padding: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  height: fit-content;
+}
+
+.package-hero {
+  background-color: #23232a;
+  border-radius: 12px;
+  padding: 20px;
+  text-align: center;
+  margin-bottom: 24px;
+  position: relative;
+}
+
+.badge-popular {
+  background-color: #ffffff;
+  color: #0c0c0e;
+  font-size: 9px;
+  font-weight: bold;
+  padding: 3px 8px;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.package-hero h4 {
+  font-size: 18px;
+  margin: 4px 0;
+  font-weight: bold;
+}
+
+.package-hero p {
+  font-size: 11px;
+  color: #8e8e93;
+  margin: 0;
+}
+
+.summary-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 13px;
+}
+
+.summary-row span {
+  color: #8e8e93;
+}
+
+.summary-row strong {
+  text-align: right;
+}
+
+.pro-icon {
+  width: 13px;
+  height: 13px;
+  vertical-align: middle;
+}
+
+.summary-total {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px dashed rgba(255, 255, 255, 0.15);
+  padding-top: 16px;
+  margin-top: 8px;
+}
+
+.summary-total span {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.price-total {
+  font-size: 20px;
+  font-weight: bold;
+  color: #00e082;
+}
+
+.promo-group {
+  display: flex;
+  gap: 10px;
+  margin: 20px 0;
+}
+
+.promo-group input {
+  flex: 1;
+  background-color: #23232a;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px 14px;
+  color: #ffffff;
+  font-size: 13px;
+  outline: none;
+}
+
+.promo-group button {
+  background-color: #31313a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.secure-badge {
+  background-color: rgba(0, 224, 130, 0.03);
+  border: 1px dashed rgba(0, 224, 130, 0.15);
+  border-radius: 8px;
+  padding: 12px;
+  font-size: 11px;
+  color: #00e082;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.payment-error-msg {
+  color: #ff4a4a;
+  font-size: 13px;
+  margin-bottom: 12px;
+}
+
+.payment-error-msg.modal-err {
+  margin-top: 8px;
+  text-align: center;
+}
+
+/* ANIMASI FADE-IN */
+.animated-fade {
+  animation: modalFadeIn 0.3s ease;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* MODAL BLUR BACKDROP */
+.modal-backdrop-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow-y: auto;
+  z-index: 1000;
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+/* MODAL UPLOAD BUKTI */
+.upload-payment-modal-card {
+  background-color: #17171c;
+  border-radius: 20px;
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+  animation: modalFadeIn 0.3s ease;
+}
+
+.upload-payment-modal-card h3 {
+  margin: 0 0 8px 0;
+  font-size: 20px;
+}
+
+.upload-payment-modal-card p {
+  color: #8e8e93;
+  font-size: 13px;
+  margin: 0 0 24px 0;
+}
+
+.upload-dropzone-wrapper {
+  margin-bottom: 24px;
+}
+
+.upload-dropzone-wrapper input[type="file"] {
+  display: none;
+}
+
+.dropzone-label {
+  display: flex;
+  background-color: #23232a;
+  border: 2px dashed rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.dropzone-label:hover {
+  border-color: #e50914;
+}
+
+.dropzone-placeholder {
+  text-align: center;
+  padding: 20px;
+}
+
+.upload-cloud-icon {
+  font-size: 36px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.dropzone-placeholder strong {
+  display: block;
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.dropzone-placeholder p {
+  margin: 0;
+  font-size: 11px;
+}
+
+.proof-img-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.modal-btn-row {
+  display: flex;
+  gap: 12px;
+}
+
+.btn-modal-cancel {
+  flex: 1;
+  background-color: #31313a;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-modal-submit {
+  flex: 1;
+  background-color: #e50914;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-modal-submit:disabled {
+  background-color: #555;
+  cursor: not-allowed;
+}
+
+/* POPUP MODAL PEMBAYARAN BERHASIL */
+.payment-success-card {
+  background-color: #121214;
+  border-radius: 24px;
+  padding: 40px 30px;
+  width: 100%;
+  max-width: 480px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.6);
+  text-align: center;
+  animation: modalFadeIn 0.3s ease;
+}
+
+.payment-success-card--inline {
+  max-width: 520px;
+  margin: 0 auto;
+}
+
+.success-checkmark-circle {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background-color: rgba(0, 224, 130, 0.1);
+  border: 2px solid rgba(0, 224, 130, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px auto;
+}
+
+.payment-success-card h2 {
+  font-size: 24px;
+  margin: 0 0 12px 0;
+  font-weight: bold;
+}
+
+.success-subtext {
+  color: #a0a0ab;
+  font-size: 13px;
+  line-height: 1.6;
+  margin: 0 auto 24px auto;
+  max-width: 380px;
+}
+
+.premium-active-badge-card {
+  background-color: rgba(229, 9, 20, 0.06);
+  border: 1.5px solid rgba(229, 9, 20, 0.4);
+  border-radius: 30px;
+  padding: 8px 20px;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  margin-bottom: 30px;
+}
+
+.premium-star-icon {
+  font-size: 16px;
+}
+
+/* Detail Transaksi Table */
+.success-transaction-table {
+  background-color: #1c1c1e;
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.table-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  font-size: 13px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.table-row:last-child {
+  border-bottom: none;
+}
+
+.table-row span {
+  color: #8e8e93;
+}
+
+.table-row strong {
+  color: #ffffff;
+}
+
+/* Checklist Fitur */
+.features-checklist-group {
+  text-align: left;
+  margin-bottom: 30px;
+  padding: 0 10px;
+}
+
+.features-checklist-group h5 {
+  font-size: 11px;
+  color: #8e8e93;
+  margin: 0 0 12px 0;
+  letter-spacing: 0.5px;
+}
+
+.features-checklist-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.features-checklist-group li {
+  font-size: 13px;
+  color: #d1d1d6;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.feat-check-icon {
+  color: #00e082;
+  font-weight: bold;
+}
+
+.feat-cross-icon {
+  color: #ff4a4a;
+  font-weight: bold;
+}
+
+/* Button Mulai Sekarang */
+.btn-success-modal-continue {
+  background-color: #e50914;
+  color: #ffffff;
+  border: none;
+  border-radius: 12px;
+  padding: 16px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease;
+}
+
+.btn-success-modal-continue:hover {
+  background-color: #c40811;
+}

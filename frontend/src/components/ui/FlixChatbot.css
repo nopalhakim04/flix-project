@@ -1,0 +1,523 @@
+.flix-chatbot-toggle {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 1200;
+  min-width: 148px;
+  height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 18px;
+  border: 0;
+  border-radius: 999px;
+  color: #ffffff;
+  background: #e50914;
+  box-shadow:
+    0 18px 34px rgba(0, 0, 0, 0.45),
+    0 0 26px rgba(229, 9, 20, 0.24);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1;
+  cursor: pointer;
+  transition:
+    transform 180ms ease,
+    background 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.flix-chatbot-toggle svg {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 auto;
+}
+
+.flix-chatbot-toggle:hover,
+.flix-chatbot-toggle:focus-visible {
+  background: #ff1722;
+  box-shadow:
+    0 22px 42px rgba(0, 0, 0, 0.52),
+    0 0 34px rgba(229, 9, 20, 0.34);
+  transform: translateY(-2px);
+}
+
+.flix-chatbot {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 1200;
+  width: min(372px, calc(100vw - 32px));
+  height: min(528px, calc(100vh - 56px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  color: #ffffff;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0) 34%),
+    #141414;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 22px;
+  box-shadow:
+    0 50px 60px rgba(0, 0, 0, 0.38),
+    0 18px 24px rgba(0, 0, 0, 0.36),
+    0 0 0 1px rgba(255, 255, 255, 0.03);
+}
+
+.flix-chatbot__header {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 14px 16px 14px 14px;
+  border-bottom: 1px solid #232323;
+  box-sizing: border-box;
+}
+
+.flix-chatbot__identity {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.flix-chatbot__logo,
+.flix-chatbot__message-avatar {
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #0b0b0b;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.flix-chatbot__logo {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+}
+
+.flix-chatbot__logo img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+}
+
+.flix-chatbot__title {
+  margin: 0;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.flix-chatbot__subtitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0 0;
+  color: #979797;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1;
+}
+
+.flix-chatbot__subtitle span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #34c759;
+  box-shadow: 0 0 0 3px rgba(52, 199, 89, 0.12);
+}
+
+.flix-chatbot__actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.flix-chatbot__icon-btn {
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 50%;
+  color: #ffffff;
+  background: transparent;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.flix-chatbot__icon-btn svg {
+  width: 17px;
+  height: 17px;
+}
+
+.flix-chatbot__icon-btn:hover,
+.flix-chatbot__icon-btn:focus-visible {
+  border-color: rgba(229, 9, 20, 0.65);
+  background: rgba(229, 9, 20, 0.16);
+  transform: translateY(-1px);
+}
+
+.flix-chatbot__icon-btn--clear:hover,
+.flix-chatbot__icon-btn--clear:focus-visible {
+  color: #ffb3b7;
+}
+
+.flix-chatbot__messages {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px 15px 14px;
+  overflow-y: auto;
+  background: #101010;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+
+.flix-chatbot__messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.flix-chatbot__messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.flix-chatbot__messages::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.flix-chatbot__message-row {
+  width: 100%;
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+.flix-chatbot__message-row--user {
+  justify-content: flex-end;
+}
+
+.flix-chatbot__message-row--assistant {
+  justify-content: flex-start;
+}
+
+.flix-chatbot__message-avatar {
+  width: 30px;
+  height: 30px;
+  flex: 0 0 30px;
+  border-radius: 11px;
+}
+
+.flix-chatbot__message-avatar img {
+  width: 25px;
+  height: 25px;
+  object-fit: contain;
+}
+
+.flix-chatbot__message {
+  max-width: calc(100% - 52px);
+  padding: 10px 12px;
+  border-radius: 16px;
+  box-sizing: border-box;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.flix-chatbot__message p {
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.flix-chatbot__message--assistant {
+  color: #e4e4e4;
+  background: #232323;
+  border-bottom-left-radius: 6px;
+}
+
+.flix-chatbot__message--user {
+  color: #ffffff;
+  background: #e50914;
+  border-bottom-right-radius: 6px;
+  box-shadow: 0 8px 18px rgba(229, 9, 20, 0.18);
+}
+
+.flix-chatbot__message--typing {
+  width: 54px;
+  padding: 11px 12px;
+}
+
+.flix-chatbot__typing {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.flix-chatbot__typing span {
+  width: 6px;
+  height: 6px;
+  display: block;
+  border-radius: 50%;
+  background: #bcbcbc;
+  animation: flix-chatbot-typing 1s infinite ease-in-out;
+}
+
+.flix-chatbot__typing span:nth-child(2) {
+  animation-delay: 120ms;
+}
+
+.flix-chatbot__typing span:nth-child(3) {
+  animation-delay: 240ms;
+}
+
+@keyframes flix-chatbot-typing {
+  0%,
+  80%,
+  100% {
+    opacity: 0.35;
+    transform: translateY(0);
+  }
+  40% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+.flix-chatbot__links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 7px;
+  padding: 0 14px 12px;
+  background: #141414;
+}
+
+.flix-chatbot__links a {
+  min-width: 0;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 11px;
+  color: #a8a8a8;
+  background: #0d0d0d;
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    color 160ms ease,
+    background 160ms ease;
+}
+
+.flix-chatbot__links a:hover,
+.flix-chatbot__links a:focus-visible {
+  border-color: rgba(229, 9, 20, 0.55);
+  color: #ffffff;
+  background: rgba(229, 9, 20, 0.12);
+  transform: translateY(-1px);
+}
+
+.flix-chatbot__form {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 40px;
+  align-items: center;
+  gap: 8px;
+  padding: 0 14px 14px;
+  background: #141414;
+}
+
+.flix-chatbot__form input {
+  width: 100%;
+  height: 42px;
+  min-width: 0;
+  padding: 0 14px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.13);
+  border-radius: 999px;
+  color: #ffffff;
+  background: #080808;
+  font: inherit;
+  font-size: 14px;
+  outline: 0;
+  transition:
+    border-color 160ms ease,
+    background 160ms ease;
+}
+
+.flix-chatbot__form input::placeholder {
+  color: #777777;
+}
+
+.flix-chatbot__form input:focus {
+  border-color: rgba(229, 9, 20, 0.72);
+  background: #0c0c0c;
+}
+
+.flix-chatbot__send {
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  color: #ffffff;
+  background: #e50914;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    background 160ms ease,
+    opacity 160ms ease;
+}
+
+.flix-chatbot__send svg {
+  width: 18px;
+  height: 18px;
+}
+
+.flix-chatbot__send:hover:not(:disabled),
+.flix-chatbot__send:focus-visible:not(:disabled) {
+  background: #ff1722;
+  transform: translateY(-1px);
+}
+
+.flix-chatbot__send:disabled {
+  cursor: not-allowed;
+  opacity: 0.42;
+}
+
+.flix-chatbot__confirm {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(0, 0, 0, 0.48);
+  backdrop-filter: blur(8px);
+}
+
+.flix-chatbot__confirm-dialog {
+  width: min(292px, 100%);
+  padding: 22px 20px 18px;
+  box-sizing: border-box;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 18px;
+  background: #141414;
+  color: #ffffff;
+  box-shadow:
+    0 28px 44px rgba(0, 0, 0, 0.45),
+    0 0 26px rgba(229, 9, 20, 0.16);
+  text-align: center;
+}
+
+.flix-chatbot__confirm-dialog h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.flix-chatbot__confirm-dialog p {
+  margin: 10px 0 0;
+  color: #979797;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.flix-chatbot__confirm-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.flix-chatbot__confirm-actions button {
+  min-width: 104px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 999px;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    transform 160ms ease,
+    color 160ms ease,
+    background 160ms ease,
+    border-color 160ms ease;
+}
+
+.flix-chatbot__confirm-actions button:hover,
+.flix-chatbot__confirm-actions button:focus-visible {
+  transform: translateY(-1px);
+}
+
+.flix-chatbot__confirm-cancel {
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #d2d2d2;
+  background: transparent;
+}
+
+.flix-chatbot__confirm-cancel:hover,
+.flix-chatbot__confirm-cancel:focus-visible {
+  border-color: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.flix-chatbot__confirm-delete {
+  border: 0;
+  color: #ffffff;
+  background: #e50914;
+}
+
+.flix-chatbot__confirm-delete:hover,
+.flix-chatbot__confirm-delete:focus-visible {
+  background: #ff1722;
+}
+
+@media (max-width: 520px) {
+  .flix-chatbot-toggle {
+    right: 16px;
+    bottom: 16px;
+    min-width: 52px;
+    width: 52px;
+    padding: 0;
+  }
+
+  .flix-chatbot-toggle span {
+    display: none;
+  }
+
+  .flix-chatbot {
+    right: 12px;
+    bottom: 12px;
+    width: calc(100vw - 24px);
+    height: min(528px, calc(100vh - 24px));
+    border-radius: 20px;
+  }
+
+  .flix-chatbot__links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

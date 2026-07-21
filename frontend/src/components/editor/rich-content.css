@@ -1,0 +1,140 @@
+.rich-content .ProseMirror,
+.rich-content-output {
+  color: #111;
+  line-height: 1.7;
+  word-break: break-word;
+}
+
+.rich-content .ProseMirror {
+  min-height: 220px;
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.rich-content .ProseMirror:focus,
+.rich-content .ProseMirror:focus-visible {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.rich-content .ProseMirror p,
+.rich-content-output p {
+  margin: 0 0 12px 0;
+}
+
+.rich-content .ProseMirror strong,
+.rich-content-output strong {
+  font-weight: 700;
+}
+
+.rich-content .ProseMirror em,
+.rich-content-output em {
+  font-style: italic;
+}
+
+.rich-content .ProseMirror s,
+.rich-content-output s {
+  text-decoration: line-through;
+}
+
+.rich-content .ProseMirror h1,
+.rich-content-output h1 {
+  font-size: 32px;
+  font-weight: 700;
+  margin: 0 0 14px 0;
+}
+
+.rich-content .ProseMirror h2,
+.rich-content-output h2 {
+  font-size: 26px;
+  font-weight: 700;
+  margin: 0 0 12px 0;
+}
+
+.rich-content .ProseMirror h3,
+.rich-content-output h3 {
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 10px 0;
+}
+
+.rich-content .ProseMirror ul,
+.rich-content-output ul {
+  padding-left: 22px;
+  margin: 0 0 12px 0;
+  list-style: disc;
+}
+
+.rich-content .ProseMirror ol,
+.rich-content-output ol {
+  padding-left: 22px;
+  margin: 0 0 12px 0;
+  list-style: decimal;
+}
+
+.rich-content .ProseMirror blockquote,
+.rich-content-output blockquote {
+  border-left: 4px solid #ddd;
+  margin: 0 0 12px 0;
+  padding-left: 12px;
+  color: #555;
+}
+
+.rich-content .ProseMirror pre,
+.rich-content-output pre {
+  background: #111827;
+  color: #f9fafb;
+  padding: 12px;
+  border-radius: 10px;
+  overflow-x: auto;
+}
+
+.rich-content .ProseMirror a,
+.rich-content-output a {
+  color: #2563eb;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.rich-content .ProseMirror img,
+.rich-content-output img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 12px 0;
+}
+
+.rich-content .spoiler-text {
+  background: #f3f4f6;
+  color: #111;
+  border-radius: 4px;
+  padding: 0 4px;
+}
+
+.rich-content-output .spoiler-text {
+  background: #d1d5db;
+  color: #d1d5db;
+  border-radius: 4px;
+  padding: 0 4px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+
+.rich-content-output .spoiler-text:hover {
+  background: #e5e7eb;
+  color: #111;
+}
+
+.rich-content-output .embedded-gif,
+.rich-content .embedded-gif {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+  margin: 12px 0;
+}

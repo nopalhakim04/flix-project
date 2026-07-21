@@ -1,0 +1,25 @@
+node_modules/
+**/node_modules/
+
+dist/
+**/dist/
+
+.env
+.env.*
+frontend/.env
+frontend/.env.*
+backend/.env
+backend/.env.*
+!.env.example
+!frontend/.env.example
+!backend/.env.example
+!backend/.env.mailpit.example
+
+API Key.txt
+
+# Runtime uploads
+backend/uploads/*
+!backend/uploads/.gitkeep
+uploads/*
+!uploads/.gitkeep
+.vercel
