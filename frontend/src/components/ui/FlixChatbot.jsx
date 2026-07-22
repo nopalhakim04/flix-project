@@ -300,6 +300,7 @@ function FlixChatbot() {
         }
       ]);
     } catch {
+      console.error("Chatbot Error:", error);
       setMessages((current) => [
         ...current,
         {
