@@ -1,5 +1,5 @@
 const GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta";
-const DEFAULT_GEMINI_MODEL = "gemini-3.5-flash";
+const DEFAULT_GEMINI_MODEL = "gemini-2.5-flash";
 
 const cleanText = (value, fallback = "") =>
   typeof value === "string" ? value.trim() : fallback;
@@ -491,6 +491,8 @@ export const askFlixChatbot = async (req, res) => {
     });
 
     const data = await response.json();
+    console.log("Gemini Status:", response.status);
+    console.log("Gemini Response:", JSON.stringify(data, null, 2));
 
     if (!response.ok) {
       return res.status(response.status).json({
