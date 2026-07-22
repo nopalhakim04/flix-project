@@ -279,9 +279,23 @@ function FlixChatbot() {
         })
       });
 
-      const data = await response.json();
+      let data = {};
+      try {
+        data = await response.json();
+      } catch {
+        data = {};
+      }
+
       if (!response.ok) {
-        throw new Error(data.message || "Gagal memakai Chatbot FLIX");
+        const statusMessages = {
+          401: "Sesi login tidak valid atau sudah kedaluwarsa. Silakan login kembali.",
+          403: "Chatbot FLIX hanya tersedia untuk pengguna Eksklusif.",
+          503: "Layanan AI FLIX belum dikonfigurasi di server.",
+        };
+
+        throw new Error(
+          data.message || statusMessages[response.status] || `Server mengembalikan status ${response.status}.`,
+        );
       }
 
       const assistantContent =
@@ -299,14 +313,17 @@ function FlixChatbot() {
           links: assistantLinks
         }
       ]);
-    } catch {
+    } catch (error) {
+      const isNetworkError = error instanceof TypeError;
+
       setMessages((current) => [
         ...current,
         {
           id: `assistant-${Date.now()}`,
           role: "assistant",
-          content:
-            "Maaf, Chatbot FLIX belum bisa tersambung ke server. Pastikan backend sedang berjalan."
+          content: isNetworkError
+            ? "Maaf, Chatbot FLIX belum bisa tersambung ke server. Pastikan URL backend benar dan backend sedang berjalan."
+            : error.message || "Maaf, Chatbot FLIX sedang bermasalah. Coba lagi sebentar lagi."
         }
       ]);
     } finally {
