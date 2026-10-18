@@ -12,7 +12,7 @@ const hashToken = (token) =>
   crypto.createHash("sha256").update(token).digest("hex");
 
 const getFrontendUrl = () =>
-  (process.env.FRONTEND_URL || "http://localhost:5173").replace(/\/$/, "");
+  (process.env.FRONTEND_URL || "https://flix-project-o8gp.vercel.app/").replace(/\/$/, "");
 
 const isMailConfigured = () =>
   Boolean(process.env.MAIL_HOST?.trim() && process.env.MAIL_FROM?.trim());
