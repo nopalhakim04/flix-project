@@ -11,8 +11,17 @@ import {
 const hashToken = (token) =>
   crypto.createHash("sha256").update(token).digest("hex");
 
-const getFrontendUrl = () =>
-  (process.env.FRONTEND_URL || "https://flix-project-o8gp.vercel.app/").replace(/\/$/, "");
+
+const getFrontendUrl = () => {
+  const url = process.env.FRONTEND_URL?.trim();
+
+  if (!url) {
+    throw new Error("FRONTEND_URL belum diatur di environment");
+  }
+
+  return url.replace(/\/+$/, "");
+};
+
 
 const isMailConfigured = () =>
   Boolean(process.env.MAIL_HOST?.trim() && process.env.MAIL_FROM?.trim());
