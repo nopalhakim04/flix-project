@@ -4,7 +4,7 @@ import { Link, useSearchParams } from "react-router-dom";
 import flixLogo from "@/assets/flix-logo.png";
 import "./Login.css";
 
-const API_URL = import.meta.env.VITE_API_URL || "https://flix-project-o8gp.vercel.app/";
+const API_URL = import.meta.env.VITE_API_URL || "https://flix-project-delta.vercel.app/";
 
 function VerifyEmail() {
   const [searchParams] = useSearchParams();
