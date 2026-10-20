@@ -16,7 +16,7 @@ const getFrontendUrl = () => {
   const url = process.env.FRONTEND_URL?.trim();
 
   if (!url) {
-    throw new Error("FRONTEND_URL https://flix-project-o8gp.vercel.app/");
+    throw new Error("FRONTEND_URL https://flix-project-o8gp.vercel.app");
   }
 
   return url.replace(/\/+$/, "");
